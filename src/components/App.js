@@ -1,20 +1,26 @@
-import { useEffect, useState } from 'react';
-import Header from './Header';
-import Dummy from './Dummy';
-import SolutionLetters from './SolutionLetters';
-import ErrorLetters from './ErrorLetters';
-import Form from './Form';
+// styles
+import "../styles/App.scss";
+import "../styles/Form.scss";
+//aplicaciones
+import { useEffect, useState } from "react";
+
+/* import { Routes, Route } from "react-router-dom"; */
+
+//componentes
+import Header from "./Header";
+import Dummy from "./Dummy";
+import SolutionLetters from "./SolutionLetters";
+import ErrorLetters from "./ErrorLetters";
+import Form from "./Form";
+import Footer from "./Footer";
 
 // api
-import getWordFromApi from '../services/api';
-// styles
-import '../styles/App.scss';
-import '../styles/Form.scss';
+import getWordFromApi from "../services/api";
 
 function App() {
-  const [word, setWord] = useState('');
+  const [word, setWord] = useState("");
   const [userLetters, setUserLetters] = useState([]);
-  const [lastLetter, setLastLetter] = useState('');
+  const [lastLetter, setLastLetter] = useState("");
   const [loading, setLoading] = useState(false);
   const [numberOfErrors, setNumberOfErrors] = useState(0);
   const maxNumberOfErrors = 13;
@@ -33,7 +39,7 @@ function App() {
   const handleWord = (value) => {
     setWord(value);
     setUserLetters([]);
-    setLastLetter('');
+    setLastLetter("");
   };
 
   // const handleKeyDown = (ev) => {
@@ -80,8 +86,12 @@ function App() {
         </section>
         <Dummy numberOfErrors={getNumberOfErrors()} />
       </main>
+      <Footer />
     </div>
   );
 }
+
+/* 1. Instalando y configurando React Router DOM
+Como os habréis imaginado el primer paso para hacer estos nuevos cambios es instalar y configurar React Router DOM. Sigue las instrucciones de la lección de hoy para hacerlo. */
 
 export default App;
